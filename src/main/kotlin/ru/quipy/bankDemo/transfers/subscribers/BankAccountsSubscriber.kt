@@ -23,25 +23,7 @@ class BankAccountsSubscriber(
     @PostConstruct
     fun init() {
         subscriptionsManager.createSubscriber(AccountAggregate::class, "transactions::bank-accounts-subscriber") {
-            `when`(TransferTransactionAcceptedEvent::class) { event ->
-                transactionEsService.update(event.transactionId) {
-                    it.processParticipantAccept(event.bankAccountId)
-                }
-            }
-            `when`(TransferTransactionDeclinedEvent::class) { event ->
-                transactionEsService.update(event.transactionId) {
-                    it.processParticipantDecline(event.bankAccountId)
-                }
-            }
-            `when`(TransferTransactionProcessedEvent::class) { event ->
-                transactionEsService.update(event.transactionId) {
-                    it.participantCommitted(event.bankAccountId)
-                }
-            }
-            `when`(TransferTransactionRollbackedEvent::class) { event ->
-                transactionEsService.update(event.transactionId) {
-                    it.participantRollbacked(event.bankAccountId)
-                }
+//
             }
         }
     }

@@ -57,6 +57,11 @@
 			<artifactId>tiny-mongo-event-store-spring-boot-starter</artifactId>
 			<version>${tiny.es.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>ru.quipy</groupId>
+			<artifactId>demo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
